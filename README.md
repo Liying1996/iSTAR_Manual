@@ -14,8 +14,6 @@ It requirs 5 files as input.
 
 ![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/data_format.png)
 
-![image-20241028140011866](/Users/yingli/Documents/iSTAR/iSTAR_Manual/figs/data_format.png)
-
 #### 1.1 he-raw.jpg
 
 Ensure that the histology image is the **raw** image, not a high-resolution version.
