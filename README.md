@@ -12,6 +12,8 @@ Paper: https://doi.org/10.1038/s41587-023-02019-9
 
 It requirs 5 files as input.
 
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/data_format.png)
+
 ![image-20241028140011866](/Users/yingli/Documents/iSTAR/iSTAR_Manual/figs/data_format.png)
 
 #### 1.1 he-raw.jpg
@@ -27,7 +29,7 @@ This is the cell-gene count matrix.
 
 Example:
 
-![image-20241028152332555](/Users/yingli/Documents/iSTAR/iSTAR_Manual/figs/cnts-example.png)
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/cnts-example.png)
 
 #### 1.3 locs-raw.tsv
 
@@ -39,7 +41,7 @@ This file contains position information that can be extracted from `tissue_posit
 
 Example:
 
-![image-20241028141620456](/Users/yingli/Documents/iSTAR/iSTAR_Manual/figs/locs-raw-example.png)
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/locs-raw-example.png)
 
 #### 1.4 pixel-size-raw.txt
 
@@ -47,7 +49,7 @@ For [Visium](https://support.10xgenomics.com/spatial-gene-expression/software/pi
 
 Example:
 
-![image-20241028141929330](/Users/yingli/Documents/iSTAR/iSTAR_Manual/figs/scalefactors_json.png)
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/scalefactors_json.png)
 
 
 
@@ -77,7 +79,7 @@ sh run.sh the_folder_includes_allinputfiles
 
 The code :https://github.com/daviddaiweizhang/istar/blob/master/run.sh
 
-![image-20241028142505647](/Users/yingli/Documents/iSTAR/iSTAR_Manual/figs/run-code.png)
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/run-code.png)
 
 **Note**: If a different rescaled pixel size or top *n* genes is required, adjust these values directly in the original code.
 
