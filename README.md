@@ -148,7 +148,7 @@ iSTAR defaults to using min-max normalization. If this is not needed (e.g., if y
 
 (impute.py)
 
-[](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/impute.png)
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/impute.png)
 
 ```
 def normalize(embs, cnts):
@@ -172,7 +172,7 @@ def normalize(embs, cnts):
 
 (plot_impute.py)
 
-[](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/plot_impute.png)
+![](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/plot_impute.png)
 
 -> comment out normalization part and change the color mapping
 
