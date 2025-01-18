@@ -140,5 +140,68 @@ The default is the top 1,000 genes. If you wish to use a custom gene list, creat
 !python cluster.py --filter-size=8 --n-clusters=40 --mask=ETC_B2S2/input/mask-small.png ETC_B2S2/input/embeddings-gene.pickle ETC_B2S2/input/clusters-gene/
 ```
 
+---
 
+#### Additional
+
+iSTAR defaults to using min-max normalization. If this is not needed (e.g., if you have already performed normalization using CP10K or similar methods and want to compare signal intensities across different samples or time points), you can comment out the relevant code in `impute.py` and `plot_impute.py`. For example, as shown below.
+
+(impute.py)
+
+[](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/impute.png)
+
+```
+def normalize(embs, cnts):
+
+    embs = embs.copy()
+    cnts = cnts.copy()
+
+    # TODO: check if adjsut_weights in extract_features can be skipped
+    embs_mean = np.nanmean(embs, (0, 1))
+    embs_std = np.nanstd(embs, (0, 1))
+#    embs -= embs_mean
+#    embs /= embs_std + 1e-12
+
+    cnts_min = cnts.min(0)
+    cnts_max = cnts.max(0)
+#    cnts -= cnts_min
+#    cnts /= (cnts_max - cnts_min) + 1e-12
+
+    return embs, cnts, (embs_mean, embs_std), (cnts_min, cnts_max)
+```
+
+(plot_impute.py)
+
+[](https://github.com/Liying1996/iSTAR_Manual/blob/main/figs/plot_impute.png)
+
+-> comment out normalization part and change the color mapping
+
+```
+def plot_super(
+    x, outfile, underground=None, truncate=None):
+
+	x = x.copy()
+	mask = np.isfinite(x)
+
+	if truncate is not None:
+	    x -= np.nanmean(x)
+	    x /= np.nanstd(x) + 1e-12
+	    x = np.clip(x, truncate[0], truncate[1])
+
+	cmap = plt.get_cmap('turbo')
+
+	if underground is not None:
+	    under = underground.mean(-1, keepdims=True)
+	    under -= under.min()
+	    under /= under.max() + 1e-12
+
+	img = cmap(np.clip(x, 0, 0.02)/0.02)[..., :3] # or change 0.02 to other max number you need
+
+	if underground is not None:
+	    img = img * 0.5 + under * 0.5
+
+	img[~mask] = 1.0
+
+	img = (img * 255).astype(np.uint8)
+```
 
