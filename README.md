@@ -142,7 +142,9 @@ The default is the top 1,000 genes. If you wish to use a custom gene list, creat
 
 ---
 
-#### Additional
+### Additional
+
+
 
 iSTAR defaults to using min-max normalization. If this is not needed (e.g., if you have already performed normalization using CP10K or similar methods and want to compare signal intensities across different samples or time points), you can comment out the relevant code in `impute.py` and `plot_impute.py`. For example, as shown below.
 
